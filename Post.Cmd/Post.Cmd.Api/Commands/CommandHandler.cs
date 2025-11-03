@@ -57,9 +57,12 @@ namespace Post.Cmd.Api.Commands
             await _eventSourcingHandler.SaveAsync(aggregate);
         }
 
-        public Task HandleAsync(DeletePostCommand command)
+        public async Task HandleAsync(DeletePostCommand command)
         {
-            throw new NotImplementedException();
+            var aggregate = await _eventSourcingHandler.GetByIdAsync(command.Id);
+            aggregate.DeletePost(command.Username);
+
+            await _eventSourcingHandler.SaveAsync(aggregate);
         }
     }
 }
