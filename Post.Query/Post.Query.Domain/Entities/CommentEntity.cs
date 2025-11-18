@@ -8,7 +8,7 @@ namespace Post.Query.Domain.Entities
     {
         [Key]
         public Guid CommentId { get; set; }
-        public string Usernam { get; set; }
+        public string Username { get; set; }
         public DateTime CommentDate { get; set; }
         public string Comment { get; set; }
         public bool Edited { get; set; }
